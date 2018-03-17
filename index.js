@@ -60,7 +60,7 @@ export let Build = {
     if (id === undefined || id === null) {
       return null
     }
-    return root.messages.one({ id })
+    return root.builds.one({ id })
   },
 }
 
@@ -70,7 +70,7 @@ export let Images = {
     if (id === undefined || id === null) {
       return null
     }
-    return root.messages.one({ id })
+    return root.builds.one({ id })
   },
 }
 
