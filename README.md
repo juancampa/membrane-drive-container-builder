@@ -1,0 +1,1 @@
+- Get your API_TOKEN here -> https://cloud.google.com/sdk/gcloud/reference/auth/application-default/print-access-token

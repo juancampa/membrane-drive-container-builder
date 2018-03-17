@@ -1,0 +1,347 @@
+{
+ "imports": [],
+ "dependencies": [],
+ "environment": [
+  {
+   "name": "API_TOKEN",
+   "description": "The API TOKEN"
+  },
+  {
+   "name": "PROJECT_ID",
+   "description": "The Project Id"
+  }
+ ],
+ "endpoints": [],
+ "schema": {
+  "types": [
+   {
+    "name": "Root",
+    "fields": [
+     {
+      "name": "builds",
+      "type": "BuildCollection"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "BuildCollection",
+    "fields": [],
+    "computedFields": [
+     {
+      "name": "one",
+      "type": "Build",
+      "params": [
+       {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the build."
+       }
+      ]
+     },
+     {
+      "name": "page",
+      "type": "BuildPage",
+      "params": [
+       {
+        "name": "pageSize",
+        "type": "Int",
+        "description": "The standard list page size."
+       },
+       {
+        "name": "pageToken",
+        "type": "String",
+        "description": "The standard list page token."
+       },
+       {
+        "name": "filter",
+        "type": "String",
+        "description": "The standard list filter."
+       }
+      ]
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "BuildPage",
+    "fields": [],
+    "computedFields": [
+     {
+      "name": "items",
+      "type": "List",
+      "ofType": {
+       "type": "BuildItem"
+      }
+     },
+     {
+      "name": "next",
+      "type": "Ref",
+      "ofType": {
+       "type": "BuildPage"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "BuildItem",
+    "fields": [
+     {
+      "name": "id",
+      "type": "String",
+      "description": "Unique identifier of the build."
+     }
+    ],
+    "computedFields": [
+     {
+      "name": "self",
+      "type": "Ref",
+      "ofType": {
+       "type": "Build"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Build",
+    "fields": [
+     {
+      "name": "id",
+      "type": "String",
+      "description": "Unique identifier of the build."
+     },
+     {
+      "name": "status",
+      "type": "String"
+     },
+     {
+      "name": "source",
+      "type": "Source"
+     },
+     {
+      "name": "createTime",
+      "type": "String"
+     },
+     {
+      "name": "startTime",
+      "type": "String"
+     },
+     {
+      "name": "finishTime",
+      "type": "String"
+     },
+     {
+      "name": "results",
+      "type": "Results"
+     },
+     {
+      "name": "timeout",
+      "type": "String"
+     },
+     {
+      "name": "images",
+      "type": "List",
+      "ofType": {
+       "type": "String"
+      }
+     },
+     {
+      "name": "projectId",
+      "type": "String"
+     },
+     {
+      "name": "logsBucket",
+      "type": "String"
+     },
+     {
+      "name": "sourceProvenance",
+      "type": "SourceProvenance"
+     },
+     {
+      "name": "buildTriggerId",
+      "type": "String"
+     },
+     {
+      "name": "logUrl",
+      "type": "String"
+     },
+     {
+      "name": "timing",
+      "type": "Timing"
+     }
+    ],
+    "computedFields": [
+     {
+      "name": "self",
+      "type": "Ref",
+      "ofType": {
+       "type": "Build"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Source",
+    "fields": [
+     {
+      "name": "repoSource",
+      "type": "RepoSource"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "RepoSource",
+    "fields": [
+     {
+      "name": "projectId",
+      "type": "String"
+     },
+     {
+      "name": "repoName",
+      "type": "String"
+     },
+     {
+      "name": "branchName",
+      "type": "String"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Results",
+    "fields": [
+     {
+      "name": "images",
+      "type": "List",
+      "ofType": {
+       "type": "Images"
+      }
+     },
+     {
+      "name": "buildStepImages",
+      "type": "List",
+      "ofType": {
+       "type": "String"
+      }
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Images",
+    "fields": [
+     {
+      "name": "name",
+      "type": "String"
+     },
+     {
+      "name": "digest",
+      "type": "String"
+     },
+     {
+      "name": "pushTiming",
+      "type": "PushTiming"
+     }
+    ],
+    "computedFields": [
+     {
+      "name": "self",
+      "type": "Ref",
+      "ofType": {
+       "type": "Images"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "PushTiming",
+    "fields": [
+     {
+      "name": "startTime",
+      "type": "String"
+     },
+     {
+      "name": "endTime",
+      "type": "String"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "SourceProvenance",
+    "fields": [
+     {
+      "name": "resolvedRepoSource",
+      "type": "ResolvedRepoSource"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "ResolvedRepoSource",
+    "fields": [
+     {
+      "name": "projectId",
+      "type": "String"
+     },
+     {
+      "name": "repoName",
+      "type": "String"
+     },
+     {
+      "name": "commitSha",
+      "type": "String"
+     }
+    ],
+    "computedFields": [],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Timing",
+    "fields": [],
+    "computedFields": [
+     {
+      "name": "fetchSource",
+      "type": "PushTiming"
+     },
+     {
+      "name": "build",
+      "type": "PushTiming"
+     },
+     {
+      "name": "push",
+      "type": "PushTiming"
+     }
+    ],
+    "actions": [],
+    "events": []
+   }
+  ]
+ },
+ "expressions": [],
+ "database": [],
+ "isDriver": false
+}
