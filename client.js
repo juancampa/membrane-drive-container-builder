@@ -1,6 +1,6 @@
 const { API_TOKEN } = process.env
 
-const client = require('axios').create({
+export const client = require('axios').create({
   baseURL: 'https://cloudbuild.googleapis.com/',
   headers: {
     Authorization: 'Bearer ' + API_TOKEN,

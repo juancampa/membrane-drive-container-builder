@@ -1,4 +1,7 @@
-const { schema, imports, dependencies, environment, expressions, endpoints } = program;
+const { schema, imports, dependencies, environment, expressions, endpoints, tests } = program;
+
+tests
+  .add('access', 'The driver can access the Google Container Builder API and retrieve data')
 
 environment
   .add('API_TOKEN', 'The API TOKEN')

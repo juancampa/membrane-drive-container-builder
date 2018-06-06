@@ -8,6 +8,23 @@ export async function init() {
     builds: {},
   })
 }
+export async function test({ name }) {
+  switch (name) {
+    case 'access': {
+      if (!PROJECT_ID) {
+        return false;
+      }
+      try {
+        const res = await client.get(`/v1/projects/${PROJECT_ID}/builds/`)
+        return res && res.status === 200;
+      } catch (e) {
+        return false;
+      }
+      break;
+    }
+  }
+  return false;
+}
 
 export const BuildCollection = {
   async one({ args }) {
