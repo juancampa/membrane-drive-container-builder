@@ -18,7 +18,7 @@ async function get(path, params) {
   const client = await getClient();
   const result = client.request({
     url: baseUrl + path,
-    method: 'get'
+    method: 'get',
     params,
   })
   return result.data;
@@ -28,7 +28,7 @@ async function post(path, body, params) {
   const client = await getClient();
   const result = client.request({
     url: baseUrl + path,
-    method: 'post'
+    method: 'post',
     body,
     params,
   })
