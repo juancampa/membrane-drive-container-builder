@@ -14,7 +14,7 @@ async function getClient() {
   return _client;
 }
 
-async function get(path, params) {
+export async function get(path, params) {
   const client = await getClient();
   const result = client.request({
     url: baseUrl + path,
@@ -24,7 +24,7 @@ async function get(path, params) {
   return result.data;
 }
 
-async function post(path, body, params) {
+export async function post(path, body, params) {
   const client = await getClient();
   const result = client.request({
     url: baseUrl + path,
