@@ -7,6 +7,7 @@ export const PROJECT_ID = apiKey.project_id;
 let _client;
 async function getClient() {
   if (_client === undefined) {
+    const { auth } = require('google-auth-library')
     _client = auth.fromJSON(JSON.parse(SERVICE_ACCOUNT_JSON));
     _client.scopes = ['https://www.googleapis.com/auth/cloud-platform']
     await _client.authorize();
