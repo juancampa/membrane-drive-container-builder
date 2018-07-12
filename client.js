@@ -2,9 +2,9 @@ const apiKey = JSON.parse(process.env.SERVICE_ACCOUNT_JSON);
 
 const baseUrl = `https://cloudbuild.googleapis.com`;
 
-export const PROJECT_ID = apiKey.project_id;
+export const PROJECT_ID apiKey.project_id;
 
-const _client;
+let _client;
 async function getClient() {
   if (_client === undefined) {
     _client = auth.fromJSON(JSON.parse(SERVICE_ACCOUNT_JSON));
