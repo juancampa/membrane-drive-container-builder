@@ -15,8 +15,15 @@ export async function test({ name }) {
       }
       try {
         const res = await get(`/v1/projects/${PROJECT_ID}/builds/`)
+        if (res && res.status === 200) {
+          return true;
+        } else {
+          console.log('Request returned status', res && res.status);
+          return false;
+        }
         return res && res.status === 200;
       } catch (e) {
+        console.log(e);
         return false;
       }
       break;
