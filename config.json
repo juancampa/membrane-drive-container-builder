@@ -334,6 +334,141 @@
     ],
     "actions": [],
     "events": []
+   },
+   {
+    "name": "TriggerCollection",
+    "fields": [],
+    "computedFields": [
+     {
+      "name": "one",
+      "type": "Trigger",
+      "params": [
+       {
+        "name": "id",
+        "type": "String",
+        "description": "Unique identifier of the trigger"
+       }
+      ]
+     },
+     {
+      "name": "items",
+      "type": "TriggerPage",
+      "params": [
+       {
+        "name": "pageSize",
+        "type": "Int"
+       },
+       {
+        "name": "pageToken",
+        "type": "String"
+       },
+       {
+        "name": "filter",
+        "type": "String"
+       }
+      ]
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "TriggerPage",
+    "fields": [],
+    "computedFields": [
+     {
+      "name": "items",
+      "type": "List",
+      "ofType": {
+       "type": "Trigger"
+      }
+     },
+     {
+      "name": "next",
+      "type": "Ref",
+      "ofType": {
+       "type": "TriggerPage"
+      }
+     }
+    ],
+    "actions": [],
+    "events": []
+   },
+   {
+    "name": "Trigger",
+    "fields": [
+     {
+      "name": "id",
+      "type": "String",
+      "description": "Unique identifier of the trigger"
+     },
+     {
+      "name": "description",
+      "type": "String",
+      "description": "Human-readable description of this trigger"
+     },
+     {
+      "name": "createTime",
+      "type": "String",
+      "description": "Time when the trigger was created"
+     },
+     {
+      "name": "disabled",
+      "type": "Boolean",
+      "description": "If true, the trigger will never result in a build"
+     },
+     {
+      "name": "substitutions",
+      "type": "List",
+      "ofType": {
+       "type": "Substitution"
+      },
+      "description": "Substitutions data for Build resource"
+     }
+    ],
+    "computedFields": [],
+    "actions": [
+     {
+      "name": "setSubstitution",
+      "type": "Int",
+      "params": [
+       {
+        "name": "key",
+        "type": "String"
+       },
+       {
+        "name": "value",
+        "type": "String"
+       }
+      ]
+     },
+     {
+      "name": "run",
+      "type": "Int"
+     }
+    ],
+    "events": []
+   },
+   {
+    "name": "Substitution",
+    "fields": [
+     {
+      "name": "key",
+      "type": "String"
+     },
+     {
+      "name": "value",
+      "type": "String"
+     }
+    ],
+    "computedFields": [],
+    "actions": [
+     {
+      "name": "delete",
+      "type": "Int"
+     }
+    ],
+    "events": []
    }
   ]
  },
