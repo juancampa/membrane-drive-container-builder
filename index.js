@@ -1,7 +1,6 @@
-import { get, post } from './client'
+import { get, post, PROJECT_ID } from './client'
 
 const { root } = program.refs
-const { PROJECT_ID } = process.env
 
 export async function init() {
   await root.set({
@@ -15,7 +14,7 @@ export async function test({ name }) {
         return false;
       }
       try {
-        const res = await client.get(`/v1/projects/${PROJECT_ID}/builds/`)
+        const res = await get(`/v1/projects/${PROJECT_ID}/builds/`)
         return res && res.status === 200;
       } catch (e) {
         return false;

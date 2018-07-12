@@ -2,7 +2,7 @@
   "name": "containerbuilder",
   "version": "1",
   "dependencies": {
-    "axios": "^0.18.0"
+    "google-auth-library": "^1.6.1"
   },
   "license": "MIT"
 }

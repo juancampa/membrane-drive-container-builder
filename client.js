@@ -1,23 +1,37 @@
-const { API_TOKEN } = process.env
+const apiKey = JSON.parse(process.env.SERVICE_ACCOUNT_JSON);
 
-export const client = require('axios').create({
-  baseURL: 'https://cloudbuild.googleapis.com/',
-  headers: {
-    Authorization: 'Bearer ' + API_TOKEN,
-  },
-})
+const baseUrl = `https://cloudbuild.googleapis.com`;
 
-export async function get(url, params) {
-  const result = await client.get(url, { params })
-  return result.data
+export const PROJECT_ID = apiKey.project_id;
+
+const _client;
+async function getClient() {
+  if (_client === undefined) {
+    _client = auth.fromJSON(JSON.parse(SERVICE_ACCOUNT_JSON));
+    _client.scopes = ['https://www.googleapis.com/auth/cloud-platform']
+    await _client.authorize();
+  }
+  return _client;
 }
 
-export async function post(url, body, params) {
-  const result = await client.post(url, body, { params })
-  return result
+async function get(path, params) {
+  const client = await getClient();
+  const result = client.request({
+    url: baseUrl + path,
+    method: 'get'
+    params,
+  })
+  return result.data;
 }
 
-export async function put(url, body, params) {
-  const result = await client.put(url, body, { params })
-  return result
+async function post(path, body, params) {
+  const client = await getClient();
+  const result = client.request({
+    url: baseUrl + path,
+    method: 'post'
+    body,
+    params,
+  })
+  return result.data;
 }
+

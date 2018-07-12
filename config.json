@@ -2,12 +2,8 @@
  "dependencies": [],
  "environment": [
   {
-   "name": "API_TOKEN",
-   "description": "The API TOKEN"
-  },
-  {
-   "name": "PROJECT_ID",
-   "description": "The Project Id"
+   "name": "SERVICE_ACCOUNT_JSON",
+   "description": "The API Service Account key in JSON format. Get it at https://console.cloud.google.com/apis/credentials"
   }
  ],
  "endpoints": [],
