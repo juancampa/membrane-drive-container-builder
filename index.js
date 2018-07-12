@@ -14,14 +14,8 @@ export async function test({ name }) {
         return false;
       }
       try {
-        const res = await get(`/v1/projects/${PROJECT_ID}/builds/`)
-        if (res && res.status === 200) {
-          return true;
-        } else {
-          console.log('Request returned status', res && res.status);
-          return false;
-        }
-        return res && res.status === 200;
+        await get(`/v1/projects/${PROJECT_ID}/builds/`)
+        return true;
       } catch (e) {
         console.log(e);
         return false;
